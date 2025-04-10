@@ -1,54 +1,36 @@
 package Arrays.Easy;
 
+import java.util.*;
+
 class Solution {
-    public static  boolean check(int[] nums) {
-        int j=0;
-        for(int i=0;i<nums.length-1;i++)
+    public static ArrayList<Integer> moveZeroes(int[] nums) {
+        ArrayList<Integer> ans = new ArrayList<>();
+        int max=nums[nums.length-1];
+        ans.add(max);
+        for(int i=nums.length-2;i>=0;i--)
         {
-            if(nums[i]>nums[i+1])
+            if(nums[i]>max)
             {
-                break;
+                ans.add(nums[i]);
+                max=nums[i];
             }
-            j++;
         }
-        System.out.println(j);
-        if(j==nums.length)
-        {
-            return true;
-        }
-        int n=(nums.length-1)-j;
+        System.out.println(ans);
 
-        for(int s=1;s<=n;s++)
-        {
-            int pos=nums[nums.length-1];
-            for(int i=nums.length-1;i>=1;i--)
-            {
-                nums[i]=nums[i-1];
-            }
-            nums[0]=pos;
-        }
-        j=0;
-
-        for(int i=0;i<nums.length-1;i++)
-        {
-            if(nums[i]>nums[i+1])
-            {
-
-                break;
-            }
-            j++;
-        }
-        if(j==nums.length)
-        {
-            return true;
-        }
-        System.out.println(j);
-        return false;
+        return ans;
     }
 
+
     public static void main(String[] args) {
-        int arr[]= {3,4,5,1,2};
-        boolean ans=check(arr);
-        System.out.println(ans);
+//        int arr1[] = {2, 1, -3, 4, -1, 2, 1, -5, 4};
+        int arr[]={10, 22, 12, 3, 0, 6};
+    moveZeroes(arr);
+
+//        System.out.println(ans);
+//        System.out.println(ans);
+//        for(int i=0;i<arr.length;i++)
+//        {
+//            System.out.print(arr[i]+ " ");
+//        }
     }
 }

@@ -8,6 +8,26 @@ public class Q21_RearrangePositiveNegatives_Optimal
 {
         public static List<Integer> rearrange( List<Integer> list)
         {
+
+            //best solution that beats the 100% on leetcode for this is:
+//            int arr[]= new int[nums.length];
+//            int posIndex=0, negIndex=1;
+//            for(int i=0;i<nums.length;i++)
+//            {
+//                if(nums[i]>=0)
+//                {
+//                    arr[posIndex]=nums[i];
+//                    posIndex+=2;
+//                }
+//                else if(nums[i]<0)
+//                {
+//                    arr[negIndex]=nums[i];
+//                    negIndex+=2;
+//                }
+//            }
+//
+//            return arr;
+//        }
             ArrayList<Integer> ans = new ArrayList<>(Collections.nCopies(list.size(),0));
             int p=0,n=1;
             for(int i=0;i<list.size();i++)

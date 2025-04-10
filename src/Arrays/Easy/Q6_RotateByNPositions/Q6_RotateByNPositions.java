@@ -4,6 +4,33 @@ public class Q6_RotateByNPositions
 {
     public static void rotateArrayByN(int arr[],int k,String direction)
     {
+        //for left rotate optimal
+//        if(nums.length==0)
+//        {
+//            return;
+//        }
+//        target=target%nums.length;
+//        if(target>nums.length)
+//        {
+//            return;
+//        }
+//        int temp[] = new int[target];
+//        for(int i=0;i<target;i++)
+//        {
+//            temp[i]=nums[i];
+//        }
+//
+//        for( int i=target;i<nums.length;i++)
+//        {
+//            nums[i-target]=nums[i];
+//        }
+//        int i=0;
+//        for(int j=nums.length-target;j<nums.length;j++)
+//        {
+//            nums[j]= temp[i];
+//            i++;
+//        }
+
         if(direction.equals("left"))
         {
             int pos[] = new int[k];
@@ -21,6 +48,36 @@ public class Q6_RotateByNPositions
                 posi++;
             }
         }
+//        Submitted ans for right shift
+//        public void rotate(int[] nums, int k) {
+//        int temp[] = new int[k];
+//        int tempIndex=0;
+//        if(nums.length==0)
+//        {
+//            return;
+//        }
+//        k= k%nums.length;
+//        if(k>nums.length)
+//        {
+//            return;
+//        }
+//        for(int i=nums.length-k;i<nums.length;i++)
+//        {
+//            temp[tempIndex]=nums[i];
+//            tempIndex++;
+//        }
+//
+//        for( int i=(nums.length-k)-1;i>=0;i--)
+//        {
+//            nums[i+k]=nums[i];
+//        }
+//        int i=0;
+//        for(int j=0;j<k;j++)
+//        {
+//            nums[j]= temp[i];
+//            i++;
+//        }
+//    }
         else if(direction.equals("right"))
         {
             int[] pos = new int[k];

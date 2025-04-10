@@ -24,7 +24,7 @@ public class Q13_LongestSubarray_Better
                 int len= i-map.get(rem);
                 maxLen= Math.max(maxLen,len);
             }
-            else if(!map.containsKey(sum))
+             if(!map.containsKey(sum))
             {
                 map.put(sum,i);
             }

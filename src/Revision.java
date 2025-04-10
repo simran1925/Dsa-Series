@@ -1,26 +1,48 @@
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
 
 public class Revision
 {
-    public static int printName(int[] arr)
+    public static int[][] printName(int[][] arr)
     {
-        Arrays.sort(arr);
-        int max= arr[arr.length-1];
-        int secondMax=-1;
-        for(int i=arr.length-1;i>=0;i--)
+        int n= arr.length;
+        int m= arr[0].length;
+       for(int i=0;i<n;i++)
+       {
+           for(int j=i;j<m;j++)
+           {
+               int temp = arr[i][j];
+               arr[i][j]= arr[j][i];
+               arr[j][i]= temp;
+           }
+       }
+
+        for(int i=0;i<n;i++)
         {
-            if(arr[i]!=max)
+            for(int j=0;j<n/2;j++)
             {
-                secondMax=arr[i];
-                break;
+                int temp = arr[i][j];
+                arr[i][j]= arr[i][n-1-j];
+                arr[i][n-1-j]= temp;
             }
         }
-        return secondMax;
+       return arr;
+
     }
     public static void main(String[] args) {
-       int arr[]= {1,6,7,3,10,5};
-       int ans=printName(arr);
-        System.out.println(ans);
+       int arr[][]= {{1,2,3},{4,5,6},{7,8,9}};
+       int ans[][]=printName(arr);
+      for(int i=0;i<ans.length;i++)
+      {
+          for(int j=0;j<ans[0].length;j++)
+          {
+              System.out.print(ans[i][j]);
+          }
+          System.out.println();
+      }
+
     }
 
 }
