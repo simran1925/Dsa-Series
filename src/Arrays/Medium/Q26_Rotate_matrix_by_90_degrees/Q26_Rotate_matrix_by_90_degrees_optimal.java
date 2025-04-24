@@ -7,7 +7,7 @@ public class Q26_Rotate_matrix_by_90_degrees_optimal
 {
     public static int[][] rotateArray(int[][] nums)
     {
-        //for transpose always remember that the j will be started from 0
+        //for transpose always remember that the j will be started from i
        for(int i=0;i<nums.length;i++)
        {
            for(int j=i;j<nums[0].length;j++)

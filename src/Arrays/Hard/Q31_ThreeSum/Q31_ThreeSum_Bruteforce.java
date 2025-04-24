@@ -1,8 +1,13 @@
-import java.util.*;
+package Arrays.Hard.Q31_ThreeSum;
 
-public class Revision
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+public class Q31_ThreeSum_Bruteforce
 {
-    public static Set<List<Integer>>  addUptoZero(int arr[])
+    public static Set<List<Integer>> twoSum(int arr[])
     {
         Set<List<Integer>> ans= new HashSet<>();
 
@@ -14,9 +19,9 @@ public class Revision
                 {
                     if(arr[i]+arr[j]+ arr[k]==0)
                     {
-                       List<Integer> list= Arrays.asList(arr[i],arr[j],arr[k]);
+                        List<Integer> list= Arrays.asList(arr[i],arr[j],arr[k]);
                         list.sort(null);
-                       ans.add(list);
+                        ans.add(list);
                     }
                 }
             }
@@ -25,9 +30,8 @@ public class Revision
     }
 
     public static void main(String[] args) {
-
         int arr[]= {-1, 0, 1, 2, -1, -4};
-        Set<List<Integer>> ans = addUptoZero(arr);
+        Set<List<Integer>> ans = twoSum(arr);
         for(List<Integer> list:ans)
         {
             System.out.print("[");
@@ -38,5 +42,4 @@ public class Revision
             System.out.print("]");
         }
     }
-
 }
