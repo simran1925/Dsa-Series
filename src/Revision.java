@@ -2,41 +2,39 @@ import java.util.*;
 
 public class Revision
 {
-    public static Set<List<Integer>>  addUptoZero(int arr[])
+    public static List<Integer> generateRow(int row)
     {
-        Set<List<Integer>> ans= new HashSet<>();
-
-        for(int i=0;i<arr.length;i++)
+        List<Integer> rowList= new ArrayList<>();
+        int ans = 1;
+        rowList.add(ans);
+        for(int i=1;i<row;i++)
         {
-            for(int j=i+1;j<arr.length;j++)
-            {
-                for(int k=j+1;k<arr.length;k++)
-                {
-                    if(arr[i]+arr[j]+ arr[k]==0)
-                    {
-                       List<Integer> list= Arrays.asList(arr[i],arr[j],arr[k]);
-                        list.sort(null);
-                       ans.add(list);
-                    }
-                }
-            }
+            ans = ans* (row-i);
+            ans = ans/i;
+            rowList.add(ans);
+        }
+        return rowList;
+    }
+    public static List<List<Integer>> findPascal(int n)
+    {
+        List<List<Integer>> ans = new ArrayList<>();
+        for(int row = 1;row<=n;row++)
+        {
+           ans.add(generateRow(row));
         }
         return ans;
     }
+//    public static void pascalTriangle(int n){
+//       for(int col=1;col<=n;col++)
+//       {
+//           System.out.print(findPascal(n));
+//       }
+//    }
 
     public static void main(String[] args) {
-
-        int arr[]= {-1, 0, 1, 2, -1, -4};
-        Set<List<Integer>> ans = addUptoZero(arr);
-        for(List<Integer> list:ans)
-        {
-            System.out.print("[");
-            for(int element: list)
-            {
-                System.out.print(element+ " ");
-            }
-            System.out.print("]");
-        }
+        int n=5, r=5,c=3;
+        List<List<Integer>> ans = findPascal(5);
+        System.out.println(ans);
     }
 
 }
