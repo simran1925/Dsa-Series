@@ -41,7 +41,7 @@ public class Q12_FindSingleElementInSortedArray_Optimal
     }
 
     public static void main(String[] args) {
-        int arr[]={1,1,2,3,3,4,4,5,5};
+        int arr[]={1,1,2,2,3,4,4,5,5};
         int ans = singleNonDuplicate(arr);
         System.out.println(ans);
     }
