@@ -2,7 +2,7 @@ package StackAndQueue.FourMainQuestionsStack;
 
 import java.util.Stack;
 
-public class NearestGreaterToLeft
+public class Q2_NearestGreaterToLeft
 {
     public static int[] nearestGreaterToLeft(int arr[])
     {

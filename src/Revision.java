@@ -1,76 +1,57 @@
 import java.util.*;
 
-class queue {
-    int size ;
-    Stack<Integer> stack1= new Stack<>() ;
-    Stack<Integer> stack2= new Stack<>() ;
-    public void push(int n)
+class Node {
+
+    int data;
+    Node left;
+    Node right;
+    public Node(int data)
     {
-        stack1.push(n);
+      this.data= data;
+      this.left=null;
+      this.right=null;
     }
-
-    public void printQueue()
-    {
-        if(stack2.isEmpty() && stack1.isEmpty())
-        {
-            System.out.println("Queue is empty");
-            return ;
-        }
-        if(!stack1.isEmpty())
-        {
-            for (Integer element : stack1) {
-                System.out.println(element);
-            }
-        }
-        else {
-            for (Integer element : stack2) {
-                System.out.println(element);
-            }
-        }
-
-    }
-
-    public void pop()   //it can be O(N) or O(1)
-    {
-        if(stack2.isEmpty())
-        {
-            while (!stack1.isEmpty())
-            {
-                stack2.push(stack1.peek());
-                stack1.pop();
-            }
-        }
-        stack2.pop() ; //the peek element of stack 2 (actually the front element)
-    }
-
-    public int getTop()  //O(n) or O(1)
-    {
-       if(stack2.isEmpty())
-       {
-           while (!stack1.isEmpty())
-           {
-               stack2.push(stack1.peek());
-               stack1.pop();
-           }
-       }
-       return stack2.peek();
-    }
-
 }
 public class Revision
 {
+    public static List<Integer> preOrderTraversal(Node root1)
+    {
 
+        List<Integer> list = new ArrayList<>();
+
+        Stack<Node> stack = new Stack<>();
+        Node node = root1;
+           while(true)
+           {
+               if(node!=null)
+               {
+                   stack.push(node);
+                   node= node.left;
+               }
+               else {
+                   if(stack.isEmpty())
+                   {
+                       break;
+                   }
+                   node = stack.pop();
+                   list.add(node.data);
+                   node= node.right;
+               }
+           }
+          return list;
+    }
     public static void main(String[] args) {
-        queue queue= new queue();
-        queue.push(3);
-        queue.push(4);
-        queue.push(5);
-        queue.printQueue();
-        System.out.println(queue.getTop());
+        // Creating a sample binary tree
+        Node root1 = new Node(1);
+        root1.left = new Node(2);
+        root1.right = new Node(3);
+        root1.left.left = new Node(4);
+        root1.left.right = new Node(5);
+        root1.left.right.right = new Node(6);
+        root1.left.right.right.right = new Node(7);
 
-        queue.pop();
-        System.out.println(queue.getTop());
-        queue.printQueue();
+        List<Integer> ans = preOrderTraversal(root1);
+        System.out.println(ans);
     }
 
 }
