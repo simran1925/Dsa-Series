@@ -21,7 +21,8 @@ public class ReplaceAllOccurencesOfAwithX
         return ch+ allOccurAWithX(s,index+1);
 
     }
-    public static void main(String[] args) {
+    public static void
+    main(String[] args) {
         String  s= "Simran";
         String ans= replace(s);
         System.out.println(ans);
