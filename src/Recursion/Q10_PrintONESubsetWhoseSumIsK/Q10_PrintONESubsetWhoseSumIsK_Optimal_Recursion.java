@@ -33,11 +33,11 @@ public class Q10_PrintONESubsetWhoseSumIsK_Optimal_Recursion
         {
             return right;
         }
-        return new ArrayList<>();
+        return null;
     }
     public static void main(String[] args) {
-        int nums[]= {1,2,3};
-        int k= 3;
+        int nums[]= {4, 9, 2, 5, 1};
+        int k= 10;
         List<Integer> ans = subsets(nums,k);
         System.out.println(ans);
     }

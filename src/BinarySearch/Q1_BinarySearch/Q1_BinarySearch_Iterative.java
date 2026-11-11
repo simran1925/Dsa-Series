@@ -10,7 +10,7 @@ public class Q1_BinarySearch_Iterative
 
         while(low<=high)
         {
-            int mid = (low+ high)/2;
+            int mid = (low+ high)/2;   //  better= s+ (e-s)/2
             if(nums[mid]==target)
             {
                 return mid;

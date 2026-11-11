@@ -42,7 +42,8 @@ public class Q8_RotatedSortedArray1_Optimal
     }
     public static void main(String[] args) {
 
-        int arr[]= {1,2,3,4,0,6,5};
+        int arr[]= {6,5,0,1,2,3,4};
+//        4,5,6,7,0,1,2
         int ans = search(arr,0);
         System.out.println(ans);
     }
